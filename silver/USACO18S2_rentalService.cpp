@@ -18,7 +18,7 @@ vec1ll cows;
 deque<vec1ll> buy;
 
 int main(){
-	// setIO("rental");
+	setIO("rental");
 
   memset(bArr, 0, sizeof(bArr));
   memset(rent, 0, sizeof(rent));

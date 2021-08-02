@@ -54,12 +54,6 @@ int main(){
     }
 
     for (int i = 0; i < N; i++) ans[ppl1[i][2]-1] = ppl1[i][1] > ppl1[i][3] ? ppl1[i][4] : -1;
-
-    //cout << "!!!!\n";
-    //for (auto t: ppl1) cout << t[0] << " " << t[1] << " " << t[2] << " " << t[3] << " " << t[4] << "\n";
-    //cout << "!!!!\n";
-    
-  
     
     ppl2[N-1][3] = ppl2[N-1][1];
     ppl2[N-1][4] = ppl2[N-1][2];
@@ -71,16 +65,13 @@ int main(){
         ppl2[i][4] = ppl2[i][2];
       }
     }
-  
-    // cout << "!!!!\n";
-    // for (auto t: ppl2) cout << t[0] << " " << t[1] << " " << t[2] << " " << t[3] << " " << t[4] << "\n";
-    // cout << "!!!!\n";
-
-    // cout << "bs for: " << 3 << " gives index: " << bs(3) << "\n"; 
+ 
     for (int i = 0; i < N; i++) 
-      if (ans[ppl2[i][2]-1] == -1)
-      
-        ans[ppl2[i][2]-1] = ppl1[i][1] > ppl2[bs(ppl1[i][0])][3] ? ppl2[i][4] : -1;
+      if (ans[ppl1[i][2]-1] == -1){
+        int temp = bs(ppl1[i][0]);
+        if (temp != -1)
+          ans[ppl1[i][2]-1] = ppl1[i][1] > ppl2[temp][3] ? ppl2[temp][4] : -1;
+      }
 
     for (int i = 0; i < N; i++) cout << ans[i] << " "; cout << "\n";
   }

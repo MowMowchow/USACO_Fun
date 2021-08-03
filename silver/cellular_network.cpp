@@ -16,7 +16,7 @@ int lower(ll x){
   int l = 0, r = t.size()-1, mid, ans = -1;
   while (l <= r){
     mid = l+(r-l)/2;
-    if (t[mid] <= x) l = mid+1;
+    if (t[mid] < x) l = mid+1;
     else {
       ans = mid;
       r = mid-1;
@@ -30,7 +30,7 @@ int upper (ll x){
   int l = 0, r = t.size()-1, mid, ans = -1;
   while (l <= r){
     mid = l+(r-l)/2;
-    if (t[mid] >= x) r = mid-1;
+    if (t[mid] > x) r = mid-1;
     else {
       ans = mid;
       l = mid+1;
